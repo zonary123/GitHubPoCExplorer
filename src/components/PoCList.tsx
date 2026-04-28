@@ -1,8 +1,15 @@
 import React from 'react';
 import PoCCard from './PoCCard';
 import { Ghost, AlertCircle } from 'lucide-react';
+import { SearchResult } from '../types';
 
-const PoCList = ({ pocs, loading, error }) => {
+interface PoCListProps {
+  pocs: SearchResult[];
+  loading: boolean;
+  error: string | null;
+}
+
+const PoCList: React.FC<PoCListProps> = ({ pocs, loading, error }) => {
   if (loading) {
     return (
       <div className="status-container">
@@ -80,6 +87,14 @@ const PoCList = ({ pocs, loading, error }) => {
       {pocs.map((poc) => (
         <PoCCard key={poc.id} poc={poc} />
       ))}
+      <style jsx>{`
+        .grid-layout {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+          gap: 2rem;
+          width: 100%;
+        }
+      `}</style>
     </div>
   );
 };

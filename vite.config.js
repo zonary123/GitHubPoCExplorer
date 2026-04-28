@@ -11,6 +11,11 @@ export default defineConfig({
         changeOrigin: true,
         secure: false,
       },
+      '/osv-api': {
+        target: 'https://api.osv.dev',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/osv-api/, ''),
+      },
     },
   },
 })
