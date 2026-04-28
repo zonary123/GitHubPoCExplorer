@@ -1,3 +1,5 @@
+![GitHub PoC Explorer Banner](public/banner.png)
+
 # GitHub PoC Explorer 🛡️
 
 [Español](README_ES.md) | **English**
@@ -11,11 +13,11 @@ The application is built with a focus on speed, allowing you to go from a CVE ID
 ## ✨ Key Features
 
 - **Instant CVE Search**: Find specific exploits simply by entering the CVE ID (e.g., `CVE-2023-48795`).
-- **Input Sanitization**: Automatic cleaning of spaces and extra characters to ensure accurate searches. 
+- **Input Sanitization**: Automatic cleaning of spaces and extra characters to ensure accurate searches.
 - **Advanced Filters**:
   - **Sorting**: Toggle between the latest added PoCs or the most popular ones (by star count).
   - **Star Threshold**: Filter results in real-time to find only the highest-impact repositories.
-- **Premium Design**: Modern interface based on *Glassmorphism* with full dark mode support. 
+- **Premium Design**: Modern interface based on *Glassmorphism* with full dark mode support.
 - **Optimized Workflow**:
   - Fast copying of CVE IDs to the clipboard.
   - Direct links to GitHub repositories.
@@ -56,20 +58,25 @@ To run this project locally, follow these steps:
 Since the PoC-in-GitHub API does not allow direct browser requests (CORS), this project uses Vite's development server as a proxy. The configuration is in `vite.config.js`:
 
 ```javascript
-server: {
-  proxy: {
-    '/api': {
-      target: 'https://poc-in-github.motikan2010.net',
-      changeOrigin: true,
-      secure: false,
+// vite.config.js
+export default defineConfig({
+  // ...
+  server: {
+    proxy: {
+      '/api': {
+        target: 'https://poc-in-github.motikan2010.net',
+        changeOrigin: true,
+        secure: false,
+      },
     },
   },
-}
+})
 ```
 
-## ⚠️ Disclaimer / Disclaimer Legal
+## ⚠️ Disclaimer
 
 This tool is for educational and research purposes only. The author is not responsible for any misuse, damage, or illegal activities carried out with this application. Use it responsibly and always within the legal framework and GitHub's policies.
 
 ---
+
 Developed with ❤️ for the security community.

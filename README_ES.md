@@ -1,3 +1,5 @@
+![GitHub PoC Explorer Banner](public/banner.png)
+
 # GitHub PoC Explorer 🛡️
 
 **Español** | [English](README.md)
@@ -53,11 +55,29 @@ Para ejecutar este proyecto localmente, sigue estos pasos:
 
 ## 📡 Configuración del Proxy (CORS)
 
-Debido a que la API de PoC-in-GitHub no permite peticiones directas desde el navegador (CORS), este proyecto utiliza el servidor de desarrollo de Vite como proxy. La configuración se encuentra en `vite.config.js`.
+Debido a que la API de PoC-in-GitHub no permite peticiones directas desde el navegador (CORS), este proyecto utiliza el servidor de desarrollo de Vite como proxy. La configuración se encuentra en `vite.config.js`:
 
-## ⚠️ Descargo de Responsabilidad / Disclaimer
+```javascript
+// vite.config.js
+export default defineConfig({
+  // ...
+  server: {
+    proxy: {
+      '/api': {
+        target: 'https://poc-in-github.motikan2010.net',
+        changeOrigin: true,
+        secure: false,
+      },
+    },
+  },
+})
+```
+
+## ⚠️ Descargo de Responsabilidad
 
 Esta herramienta tiene fines exclusivamente educativos y de investigación. El autor no se hace responsable del mal uso, daños o actividades ilegales realizadas con esta aplicación. Utilízala con responsabilidad y siempre dentro del marco legal y las políticas de GitHub.
 
 ---
+
 Desarrollado con ❤️ para la comunidad de seguridad.
+
